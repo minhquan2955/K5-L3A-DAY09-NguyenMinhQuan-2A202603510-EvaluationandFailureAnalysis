@@ -37,6 +37,21 @@ def test_build_writes_items_and_labels_without_checking_tags(tmp_path, evalset_c
     assert item["claim_id"] == "C-001"
     assert "expected" not in item
     assert labels == {"C-001": {"refund_vnd": 35000}}
+    assert b'\r\n' not in (tmp_path / "data/eval/eval_set_v1.jsonl").read_bytes()
+    assert b'\r\n' not in (tmp_path / "data/eval/labels_v1.json").read_bytes()
+
+
+def test_v2_build_uses_lf_bytes_on_every_platform(tmp_path, monkeypatch):
+    from lab9 import evalset
+
+    monkeypatch.setattr(evalset, 'ITEMS', tmp_path / 'v1.jsonl')
+    monkeypatch.setattr(evalset, 'LABELS', tmp_path / 'labels_v1.json')
+    monkeypatch.setattr(evalset, 'ITEMS_V2', tmp_path / 'v2.jsonl')
+    monkeypatch.setattr(evalset, 'LABELS_V2', tmp_path / 'labels_v2.json')
+    evalset.build()
+    evalset.build_v2(items_v1=evalset.ITEMS, labels_v1=evalset.LABELS)
+    for path in (evalset.ITEMS, evalset.LABELS, evalset.ITEMS_V2, evalset.LABELS_V2):
+        assert b'\r\n' not in path.read_bytes()
 
 
 def test_explicit_check_runs_after_build(tmp_path, evalset_cli):
