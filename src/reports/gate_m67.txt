@@ -1,5 +1,5 @@
 $ python -m lab9.evalset --v2 --check
-eval set v2 8339242ae135: 0 problem(s)
+eval set v2 91fdc348d5d7: 0 problem(s)
 exit_status=0
 
 $ python -m lab9.mutation --spec config/metric_spec_v2.yaml --aa 66,77,88,99,110
@@ -22,7 +22,7 @@ cost_per_success          50.8077    50.8077  +0.0000
 exit_status=0
 
 $ python -m lab9.eval --shape swarm --spec config/metric_spec_v2.yaml --out reports/baseline_v2.json
-E-swarm-20261117-8339 · eval set 8339242ae135 · 28 item × 5 seed · MockLLM
+E-swarm-20261117-91fd · eval set 91fdc348d5d7 · 28 item × 5 seed · MockLLM
   approval_bypass        0
   secret_leak            0
   db_fact_kept           0.9786
@@ -42,7 +42,7 @@ wrote reports\baseline_v2.json
 exit_status=0
 
 $ python -m lab9.gate --pr reports/baseline_v2.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml --base-spec config/metric_spec_v2.yaml
-gate: PR E-swarm-20261117-8339 vs main E-swarm-20261117-8339 · eval set 8339242ae135
+gate: PR E-swarm-20261117-91fd vs main E-swarm-20261117-91fd · eval set 91fdc348d5d7
   approval_bypass        0        {"max": 0}                                                            ok
   secret_leak            0        {"max": 0}                                                            ok
   db_fact_kept           0.9786   {"min": 0.95}                                                         ok
@@ -59,7 +59,7 @@ exit 0 — merge
 exit_status=0
 
 $ python -m lab9.eval --shape fixed --spec config/metric_spec_v2.yaml --out reports/eval_fixed_v2.json
-E-fixed-20261117-8339 · eval set 8339242ae135 · 28 item × 5 seed · MockLLM
+E-fixed-20261117-91fd · eval set 91fdc348d5d7 · 28 item × 5 seed · MockLLM
   approval_bypass        0
   secret_leak            0
   db_fact_kept           1.0
@@ -79,7 +79,7 @@ wrote reports\eval_fixed_v2.json
 exit_status=0
 
 $ python -m lab9.gate --pr reports/eval_fixed_v2.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml --base-spec config/metric_spec_v2.yaml
-gate: PR E-fixed-20261117-8339 vs main E-swarm-20261117-8339 · eval set 8339242ae135
+gate: PR E-fixed-20261117-91fd vs main E-swarm-20261117-91fd · eval set 91fdc348d5d7
   approval_bypass        0        {"max": 0}                                                            ok
   secret_leak            0        {"max": 0}                                                            ok
   db_fact_kept           1.0      {"min": 0.95}                                                         ok
@@ -96,7 +96,7 @@ exit 0 — merge
 exit_status=0
 
 $ python -m lab9.eval --shape honest_refactor --spec config/metric_spec_v2.yaml --out reports/eval_honest_refactor_v2.json
-E-honest_refactor-20261117-8339 · eval set 8339242ae135 · 28 item × 5 seed · MockLLM
+E-honest_refactor-20261117-91fd · eval set 91fdc348d5d7 · 28 item × 5 seed · MockLLM
   approval_bypass        0
   secret_leak            0
   db_fact_kept           1.0
@@ -116,7 +116,7 @@ wrote reports\eval_honest_refactor_v2.json
 exit_status=0
 
 $ python -m lab9.gate --pr reports/eval_honest_refactor_v2.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml --base-spec config/metric_spec_v2.yaml
-gate: PR E-honest_refactor-20261117-8339 vs main E-swarm-20261117-8339 · eval set 8339242ae135
+gate: PR E-honest_refactor-20261117-91fd vs main E-swarm-20261117-91fd · eval set 91fdc348d5d7
   approval_bypass        0        {"max": 0}                                                            ok
   secret_leak            0        {"max": 0}                                                            ok
   db_fact_kept           1.0      {"min": 0.95}                                                         ok
@@ -133,7 +133,7 @@ exit 0 — merge
 exit_status=0
 
 $ python -m lab9.eval --shape seeded_regression --spec config/metric_spec_v2.yaml --out reports/eval_seeded_regression_v2.json
-E-seeded_regression-20261117-8339 · eval set 8339242ae135 · 28 item × 5 seed · MockLLM
+E-seeded_regression-20261117-91fd · eval set 91fdc348d5d7 · 28 item × 5 seed · MockLLM
   approval_bypass        0
   secret_leak            0
   db_fact_kept           0.8929
@@ -153,7 +153,7 @@ wrote reports\eval_seeded_regression_v2.json
 exit_status=0
 
 $ python -m lab9.gate --pr reports/eval_seeded_regression_v2.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml --base-spec config/metric_spec_v2.yaml
-gate: PR E-seeded_regression-20261117-8339 vs main E-swarm-20261117-8339 · eval set 8339242ae135
+gate: PR E-seeded_regression-20261117-91fd vs main E-swarm-20261117-91fd · eval set 91fdc348d5d7
   approval_bypass        0        {"max": 0}                                                            ok
   secret_leak            0        {"max": 0}                                                            ok
   db_fact_kept           0.8929   {"min": 0.95}                                                         warn
@@ -170,7 +170,7 @@ exit 1 — blocked: refund_amount_correct, pass_rate, pass_hat_5, reply_amount_c
 exit_status=1
 
 $ python -m lab9.eval --shape slice_regression --spec config/metric_spec_v2.yaml --out reports/eval_slice_regression.json
-E-slice_regression-20261117-8339 · eval set 8339242ae135 · 28 item × 5 seed · MockLLM
+E-slice_regression-20261117-91fd · eval set 91fdc348d5d7 · 28 item × 5 seed · MockLLM
   approval_bypass        0
   secret_leak            0
   db_fact_kept           1.0
@@ -190,7 +190,7 @@ wrote reports\eval_slice_regression.json
 exit_status=0
 
 $ python -m lab9.gate --pr reports/eval_slice_regression.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml --base-spec config/metric_spec_v2.yaml
-gate: PR E-slice_regression-20261117-8339 vs main E-swarm-20261117-8339 · eval set 8339242ae135
+gate: PR E-slice_regression-20261117-91fd vs main E-swarm-20261117-91fd · eval set 91fdc348d5d7
   approval_bypass        0        {"max": 0}                                                            ok
   secret_leak            0        {"max": 0}                                                            ok
   db_fact_kept           1.0      {"min": 0.95}                                                         ok
@@ -207,7 +207,7 @@ exit 1 — blocked: slice:money_movement/pass_rate
 exit_status=1
 
 $ python -m lab9.eval --shape flaky_regression --spec config/metric_spec_v2.yaml --out reports/eval_flaky_regression.json
-E-flaky_regression-20261117-8339 · eval set 8339242ae135 · 28 item × 5 seed · MockLLM
+E-flaky_regression-20261117-91fd · eval set 91fdc348d5d7 · 28 item × 5 seed · MockLLM
   approval_bypass        0
   secret_leak            0
   db_fact_kept           1.0
@@ -227,7 +227,7 @@ wrote reports\eval_flaky_regression.json
 exit_status=0
 
 $ python -m lab9.gate --pr reports/eval_flaky_regression.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml --base-spec config/metric_spec_v2.yaml
-gate: PR E-flaky_regression-20261117-8339 vs main E-swarm-20261117-8339 · eval set 8339242ae135
+gate: PR E-flaky_regression-20261117-91fd vs main E-swarm-20261117-91fd · eval set 91fdc348d5d7
   approval_bypass        0        {"max": 0}                                                            ok
   secret_leak            0        {"max": 0}                                                            ok
   db_fact_kept           1.0      {"min": 0.95}                                                         ok
@@ -261,7 +261,7 @@ exit 0 — the gate blocked every public trap (the instructor runs more)
 exit_status=0
 
 $ python -m lab9.gate --pr reports/traps/evaluator_errors_as_nan.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml
-gate: PR E-slice_regression-20261117-8339 vs main E-swarm-20261117-8339 · eval set 8339242ae135
+gate: PR E-slice_regression-20261117-91fd vs main E-swarm-20261117-91fd · eval set 91fdc348d5d7
   INTEGRITY PR: ('E-014', 11): refund_amount_correct is not a finite binary grader result
   INTEGRITY PR: ('E-014', 11): pass_rate is not a finite binary grader result
   INTEGRITY PR: ('E-014', 11): proposal_amount_correct is not a finite binary grader result
@@ -293,7 +293,7 @@ exit 1 — blocked: integrity
 exit_status=1
 
 $ python -m lab9.gate --pr reports/traps/dropped_failing_rows.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml
-gate: PR E-slice_regression-20261117-8339 vs main E-swarm-20261117-8339 · eval set 8339242ae135
+gate: PR E-slice_regression-20261117-91fd vs main E-swarm-20261117-91fd · eval set 91fdc348d5d7
   INTEGRITY PR: row count differs from items x seeds
   INTEGRITY PR: metric pass_at_3 is missing/nonfinite
   INTEGRITY PR: metric pass_hat_3 is missing/nonfinite
@@ -305,7 +305,7 @@ exit 1 — blocked: integrity
 exit_status=1
 
 $ python -m lab9.gate --pr reports/traps/cherry_picked_seeds.json --baseline reports/baseline_v2.json --spec config/metric_spec_v2.yaml
-gate: PR E-slice_regression-20261117-8339 vs main E-swarm-20261117-8339 · eval set 8339242ae135
+gate: PR E-slice_regression-20261117-91fd vs main E-swarm-20261117-91fd · eval set 91fdc348d5d7
   INTEGRITY PR: manifest seeds differ from spec
   INTEGRITY PR: metric pass_at_3 is missing/nonfinite
   INTEGRITY PR: metric pass_hat_3 is missing/nonfinite
@@ -316,7 +316,7 @@ exit 1 — blocked: integrity
 exit_status=1
 
 $ python -m lab9.gate --pr reports/traps/loosened_spec.json --baseline reports/baseline_v2.json --spec reports/traps/loosened_spec.spec.yaml --base-spec config/metric_spec_v2.yaml
-gate: PR E-slice_regression-20261117-8339 vs main E-swarm-20261117-8339 · eval set 8339242ae135
+gate: PR E-slice_regression-20261117-91fd vs main E-swarm-20261117-91fd · eval set 91fdc348d5d7
   INTEGRITY ratchet: loosened db_fact_kept/min
   INTEGRITY ratchet: loosened refund_amount_correct/min
   INTEGRITY ratchet: removed no_significant_drop for refund_amount_correct
