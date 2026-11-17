@@ -11,8 +11,9 @@ Học viên không cần đọc file này. Mọi đường dẫn và lệnh dư�
   ```
 
   Gate: shape nhóm chọn có pass rate ≥ 0.75 trên 200 trial (≥ 0.80 nếu muốn nhận điểm cộng); `secret_leak_count`, `pii_leak_count`, `approval_bypass_count` bằng 0; crash 20/20. Lưu ý `crash_test` kiểm host và swarm. Crash của shape nhóm được kiểm qua T12 trong ma trận student.
+
 - **Đối chứng mong đợi:** swarm trên hidden ra pass 0.97, pass^5 0.85, chỉ fail ở seed 55. Một workflow đúng ra 1.0 / 1.0.
 - **Grader chống ghi lén:** trial fail với lý do `unexpected_ledger_rows` nếu ledger có dòng không thuộc claim đang chấm và không phải refund lịch sử đã seed. Shape không thể ghi tiền dưới claim id khác mà lọt.
 - **Chấm bonus:** quy trình 10 phút mỗi nhóm ở cuối `docs/bonus_topics.md`. Biến thể bonus chấm trên hidden bằng cờ `--extra-shape`.
 - **Chấm nhiều nhóm:** chạy grader riêng lần lượt cho từng repo nhóm, trỏ `--pack` tới pack của giảng viên bằng đường dẫn tuyệt đối. Shape được chấm cổng hidden lấy từ dòng `- Shape chọn:` trong `report/team/decision_adr.md`. Một shape ném exception chỉ làm fail trial của shape đó, các shape khác vẫn được chấm.
-- **CI:** `.github/workflows/ci.yml` (working directory `src/`) chạy smoke, pytest, crash suite và benchmark swarm trên Ubuntu, Windows, macOS × Python 3.11 và 3.13. Push lên GitHub là thấy kết quả trên cả 3 hệ điều hành.
+- **CI:** `.github/workflows/ci.yml` (working directory `src/`) chạy smoke, pytest, crash suite và benchmark swarm trên Ubuntu, Windows, macOS × Python 3.11 và 3.13. Push lên GitHub là thấy kết quả trên cả 3 hệ điều hành
